@@ -18,6 +18,8 @@ public class Address {
 
     private String localNumber;
 
+    private String province;
+
     public Integer getId() {
         return id;
     }
@@ -56,5 +58,13 @@ public class Address {
 
     public void setLocalNumber(String localNumber) {
         this.localNumber = localNumber;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 }

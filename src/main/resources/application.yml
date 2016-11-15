@@ -2,3 +2,6 @@ spring.datasource.url: jdbc:postgresql://localhost/postoffice
 spring.datasource.username: postgres
 spring.datasource.password: postgres
 spring.datasource.driver-class-name: org.postgresql.Driver
+
+#spring.jpa.generate-ddl: true
+#spring.jpa.hibernate.ddl-auto: create
