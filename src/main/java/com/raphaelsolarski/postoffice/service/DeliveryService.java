@@ -14,6 +14,7 @@ public class DeliveryService {
     private DeliveryRepository deliveryRepository;
 
     public Optional<Delivery> addOrUpdateDelivery(Delivery delivery) {
+        String province = delivery.getTargetAddress().getProvince();
         return Optional.ofNullable(deliveryRepository.save(delivery));
     }
 

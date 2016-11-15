@@ -1,5 +1,7 @@
 package com.raphaelsolarski.postoffice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,14 +12,22 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonProperty(required = true)
+    @Column(nullable = false)
     private String town;
 
+    @JsonProperty(required = true)
+    @Column(nullable = false)
     private String street;
 
+    @JsonProperty(required = true)
+    @Column(nullable = false)
     private String buildingNumber;
 
     private String localNumber;
 
+    @JsonProperty(required = true)
+    @Column(nullable = false)
     private String province;
 
     public Integer getId() {

@@ -1,5 +1,7 @@
 package com.raphaelsolarski.postoffice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,7 +13,8 @@ public class CourierCompany {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "address_id", nullable = false)
+    @JsonProperty(required = true)
     private Address address;
 
     private String name;

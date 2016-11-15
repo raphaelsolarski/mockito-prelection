@@ -1,5 +1,7 @@
 package com.raphaelsolarski.postoffice.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,15 +14,19 @@ public class Delivery {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "source_address_id")
+    @JoinColumn(name = "source_address_id", nullable = false)
+    @JsonProperty(required = true)
     private Address sourceAddress;
 
     @ManyToOne
-    @JoinColumn(name = "target_address_id")
+    @JoinColumn(name = "target_address_id", nullable = false)
+    @JsonProperty(required = true)
     private Address targetAddress;
 
+    @JsonProperty(required = true)
     private Integer weight;
 
+    @JsonProperty(required = true)
     private Date sendDate;
 
     private Date deliveryDate;
