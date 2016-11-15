@@ -1,13 +1,14 @@
 package com.raphaelsolarski.postoffice.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "deliveries")
 public class Delivery {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
@@ -20,9 +21,9 @@ public class Delivery {
 
     private Integer weight;
 
-    private LocalDateTime sendDate;
+    private Date sendDate;
 
-    private LocalDateTime deliveryDate;
+    private Date deliveryDate;
 
     public Address getSourceAddress() {
         return sourceAddress;
@@ -48,19 +49,19 @@ public class Delivery {
         this.weight = weight;
     }
 
-    public LocalDateTime getSendDate() {
+    public Date getSendDate() {
         return sendDate;
     }
 
-    public void setSendDate(LocalDateTime sendDate) {
+    public void setSendDate(Date sendDate) {
         this.sendDate = sendDate;
     }
 
-    public LocalDateTime getDeliveryDate() {
+    public Date getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(LocalDateTime deliveryDate) {
+    public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 

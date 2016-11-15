@@ -14,15 +14,15 @@ public class DeliveryService {
     private DeliveryRepository deliveryRepository;
 
     public Optional<Delivery> addOrUpdateDelivery(Delivery delivery) {
-        return null;
+        return Optional.ofNullable(deliveryRepository.save(delivery));
     }
 
     public Optional<Delivery> findDeliveryById(Integer deliveryId) {
-        return null;
+        return Optional.ofNullable(deliveryRepository.findOne(deliveryId));
     }
 
-    public boolean deleteDeliveryById(Integer deliveryId) {
-        return false;
+    public void deleteDeliveryById(Integer deliveryId) {
+        findDeliveryById(deliveryId).ifPresent(delivery -> deliveryRepository.delete(delivery));
     }
 
 }

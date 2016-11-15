@@ -1,14 +1,13 @@
 package com.raphaelsolarski.postoffice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "addresses")
 public class Address {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String town;
@@ -18,6 +17,14 @@ public class Address {
     private String buildingNumber;
 
     private String localNumber;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getTown() {
         return town;
