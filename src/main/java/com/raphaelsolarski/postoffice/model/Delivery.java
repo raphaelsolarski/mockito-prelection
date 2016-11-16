@@ -31,6 +31,10 @@ public class Delivery {
 
     private Date deliveryDate;
 
+    @ManyToOne
+    @JoinColumn(name = "courier_company_id", nullable = false)
+    private CourierCompany courierCompany;
+
     public Integer getId() {
         return id;
     }
@@ -79,4 +83,11 @@ public class Delivery {
         this.deliveryDate = deliveryDate;
     }
 
+    public CourierCompany getCourierCompany() {
+        return courierCompany;
+    }
+
+    public void setCourierCompany(CourierCompany courierCompany) {
+        this.courierCompany = courierCompany;
+    }
 }
