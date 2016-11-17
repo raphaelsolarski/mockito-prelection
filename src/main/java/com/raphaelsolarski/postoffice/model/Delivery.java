@@ -35,6 +35,13 @@ public class Delivery {
     @JoinColumn(name = "courier_company_id", nullable = false)
     private CourierCompany courierCompany;
 
+    public Delivery() {
+    }
+
+    public Delivery(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

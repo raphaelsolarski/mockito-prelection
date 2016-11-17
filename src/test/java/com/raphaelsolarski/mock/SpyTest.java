@@ -91,6 +91,27 @@ public class SpyTest {
         simpleClass.methodThatReturnsInt();
     }
 
+    @Test
+    public void spyShouldNotThrowException() throws Exception {
+        SimpleClass simpleClass = Mockito.spy(SimpleClass.class);
+
+        Mockito.doNothing().when(simpleClass).voidMethodThatThrowsException();
+
+        simpleClass.voidMethodThatThrowsException();
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void spyShouldDoNothingAndNextCallRealMethod() throws Exception {
+        SimpleClass simpleClass = Mockito.spy(SimpleClass.class);
+
+        Mockito.doNothing()
+                .doCallRealMethod()
+                .when(simpleClass).voidMethodThatThrowsException();
+
+        simpleClass.voidMethodThatThrowsException();
+        simpleClass.voidMethodThatThrowsException();
+    }
+
     @Test(expected = MockitoException.class)
     public void doNotDoItInHome() throws Exception {
         Mockito.spy(Mockito.spy(new Object()));
